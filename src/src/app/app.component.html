@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="text-center">Nibo Championship</h1>
+  <hr/>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="">
+        <app-duels (winnerOutput)="addTeamPhase2($event)"></app-duels>
+        <br/>
+        <br/>
+        <app-duels (winnerOutput)="addTeamPhase2($event)"></app-duels>
+      </div>
+    </div>
+  
+    <div class="col-sm-4">
+      <div class="">
+        <br/>
+        <br/>
+        <br/>
+        <app-duels (winnerOutput)="addTeamPhase3($event)" name1="{{listTeamsPhase2[0]}}" name2="{{listTeamsPhase2[1]}}"></app-duels>
+      </div>
+    </div>
+  
+    <div class="col-sm-4">
+      <div class="">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <app-teams (winnerOutput)="addWinner($event)" name="{{listTeamsPhase3[0]}}"></app-teams>
+      </div>
+    </div>
+  
+    <div *ngIf="finalWinner != ''" id="winner" class="col-sm-12">
+      <hr/>
+      <h1>Parabéns time <span>{{finalWinner}}!</span></h1>
+      <h3>Você é o vencedor do campeonato!</h3>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
